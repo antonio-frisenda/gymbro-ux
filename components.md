@@ -148,10 +148,28 @@ Componente drag-and-drop nel remote per posizionare il timer overlay sulla TV.
 
 ---
 
-## Gymbro Logo
+## Gymbro Logo & Background
 
-Il logo è configurabile per workspace:
-- **Default**: testo "Gymbro" in font Inter 700 con il punto in `#e11d48`
-- **Custom**: immagine caricata dall'admin (PNG/SVG, max 512KB), salvata su S3/MinIO
-- **Timer-only mode**: nessun logo, schermo completamente occupato dal timer
-- La modalità di display (`logo` | `custom_logo` | `timer_only`) è configurabile dall'app remote e salvata su MongoDB per ogni schermo.
+### Modalità sfondo (configurabile per schermo)
+| Modalità | Descrizione |
+|---|---|
+| `gymbro_logo` | Logo Gymbro animato su sfondo `#0f172a` (default) |
+| `custom_logo` | Logo della palestra (PNG/SVG, max 512KB, S3/MinIO) |
+| `solid_color` | Colore a tinta unita — color picker libero |
+| `phrases` | Frasi motivazionali a rotazione: predefinite dal sistema + custom dell'admin |
+| `video` | Video/audio da playlist, timer in overlay |
+
+Il timer viene mostrato sopra qualsiasi modalità di sfondo. In modalità `video`, il timer è un overlay posizionabile. Nelle altre modalità il timer occupa il centro dello schermo (o la posizione configurata).
+
+### Frasi motivazionali predefinite (IT)
+```
+"Non mollare."
+"Ogni rep conta."
+"La fatica di oggi è la forza di domani."
+"Spingi oltre i tuoi limiti."
+"Il corpo ottiene ciò che la mente crede."
+"Sii più forte di ieri."
+"Il dolore è temporaneo. La gloria è eterna."
+"Forza. Disciplina. Risultati."
+```
+L'admin può aggiungere frasi custom dalla sezione Impostazioni del remote.
